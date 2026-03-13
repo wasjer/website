@@ -9,6 +9,47 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Azeret+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
 
   <style>
+    /* ─── SPLASH SCREEN ──────────────────────────────────────────────────── */
+    #splash {
+      position: fixed; inset: 0; z-index: 10000;
+      background: #efefed;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      transition: opacity .9s cubic-bezier(.4,0,.2,1), transform .9s cubic-bezier(.4,0,.2,1);
+      overflow: hidden;
+    }
+    #splash.exit {
+      opacity: 0;
+      transform: scale(1.06);
+      pointer-events: none;
+    }
+    #splash canvas {
+      display: block;
+      cursor: pointer;
+    }
+    .sph-hint {
+      position: absolute; bottom: 88px; left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Azeret Mono', monospace;
+      font-size: 15px; letter-spacing: .04em;
+      color: #555; white-space: nowrap;
+      pointer-events: none;
+      animation: sph-fade-in 1s ease forwards; opacity: 0; animation-delay: .6s;
+    }
+    .sph-hint em { color: #d4950a; font-style: normal; }
+    .sph-skip {
+      position: absolute; bottom: 28px; right: 32px;
+      font-family: 'Azeret Mono', monospace;
+      font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase;
+      color: #777; padding: 10px 22px;
+      border: 1.5px solid #ccc; border-radius: 100px;
+      background: rgba(255,255,255,.65);
+      cursor: pointer; transition: border-color .2s, color .2s, background .2s;
+      animation: sph-fade-in 1s ease forwards; opacity: 0; animation-delay: .9s;
+    }
+    .sph-skip:hover { border-color: #aaa; color: #333; background: rgba(255,255,255,.9); }
+    @keyframes sph-fade-in { to { opacity: 1; } }
+
     /* ─── TOKENS ─────────────────────────────────────────────────────────── */
     :root {
       --bg:       #08080c;
@@ -511,6 +552,13 @@
 </head>
 <body>
 
+  <!-- ─── SPLASH SCREEN ─────────────────────────────────────────────────── -->
+  <div id="splash">
+    <canvas id="sph-canvas"></canvas>
+    <p class="sph-hint"><em>Click</em> the portal to enter</p>
+    <button class="sph-skip">SKIP →</button>
+  </div>
+
   <!-- Cursor -->
   <div id="cur"></div>
   <div id="cur-ring"></div>
@@ -851,6 +899,150 @@
         card.style.transform = '';
       });
     });
+
+    /* ── Splash screen canvas animation ── */
+    (function () {
+      const splash  = document.getElementById('splash');
+      const canvas  = document.getElementById('sph-canvas');
+      const ctx     = canvas.getContext('2d');
+
+      // Prevent body scroll while splash is visible
+      document.body.style.overflow = 'hidden';
+
+      // Sizing: square, fits the viewport
+      const S = Math.min(window.innerWidth * 0.88, window.innerHeight * 0.72, 560);
+      canvas.width  = S;
+      canvas.height = S;
+      const cx = S / 2, cy = S / 2;
+
+      // ── Arc definitions ──────────────────────────────────────────
+      // Each arc: radius, color, span (radians ~4.7-5.4), rotSpeed, startAngle
+      const ARCS = [
+        { r: S * 0.425, color: '#d4950a', span: 5.20, speed:  0.0025, a:  0.0 },
+        { r: S * 0.345, color: '#5055c8', span: 5.40, speed: -0.0035, a:  0.8 },
+        { r: S * 0.270, color: '#d03878', span: 4.90, speed:  0.0048, a:  2.2 },
+        { r: S * 0.195, color: '#35b882', span: 3.80, speed: -0.0065, a:  1.0 },
+      ];
+
+      // ── Orbital "satellite" dots (one per arc, rides the arc end) ──
+      // ── Plus scattered freely-floating dots ──
+      const FREE_DOTS = [
+        { pr: 0.50, pa: 0.50, color: '#d4950a', sz: 3.2 },
+        { pr: 0.47, pa: 3.30, color: '#d4950a', sz: 4.0 },
+        { pr: 0.40, pa: 5.10, color: '#d4950a', sz: 2.8 },
+        { pr: 0.36, pa: 1.40, color: '#5055c8', sz: 3.0 },
+        { pr: 0.52, pa: 2.60, color: '#5055c8', sz: 3.2 },
+        { pr: 0.28, pa: 3.90, color: '#d03878', sz: 2.8 },
+        { pr: 0.48, pa: 0.20, color: '#d03878', sz: 2.4 },
+        { pr: 0.62, pa: 4.70, color: '#d4950a', sz: 2.5 },
+        { pr: 0.58, pa: 1.90, color: '#d4950a', sz: 2.0 },
+      ];
+
+      let angles = ARCS.map(a => a.a);
+      let running = true;
+
+      // ── Orb glow params ──────────────────────────────────────────
+      const ORB_R = S * 0.095;
+      let orbPulse = 0;
+
+      // ── Hover detection ─────────────────────────────────────────
+      canvas.addEventListener('mousemove', e => {
+        const r = canvas.getBoundingClientRect();
+        const dx = e.clientX - r.left  - cx;
+        const dy = e.clientY - r.top   - cy;
+        canvas.style.cursor = Math.hypot(dx, dy) < ORB_R * 2.4 ? 'pointer' : 'default';
+      });
+
+      // ── Draw frame ───────────────────────────────────────────────
+      function draw() {
+        ctx.clearRect(0, 0, S, S);
+
+        // Orb outer soft halo
+        orbPulse += 0.022;
+        const pulse = 0.92 + Math.sin(orbPulse) * 0.08;
+        const halo = ctx.createRadialGradient(cx, cy, 0, cx, cy, ORB_R * 2.8 * pulse);
+        halo.addColorStop(0,   'rgba(175,155,235,0.55)');
+        halo.addColorStop(0.4, 'rgba(155,135,215,0.22)');
+        halo.addColorStop(1,   'rgba(140,120,200,0)');
+        ctx.fillStyle = halo;
+        ctx.beginPath();
+        ctx.arc(cx, cy, ORB_R * 2.8 * pulse, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Orb inner core
+        const core = ctx.createRadialGradient(cx, cy, 0, cx, cy, ORB_R);
+        core.addColorStop(0,   'rgba(220,210,255,0.9)');
+        core.addColorStop(0.6, 'rgba(190,175,240,0.6)');
+        core.addColorStop(1,   'rgba(160,145,220,0.1)');
+        ctx.fillStyle = core;
+        ctx.beginPath();
+        ctx.arc(cx, cy, ORB_R, 0, Math.PI * 2);
+        ctx.fill();
+
+        // ENTER text
+        ctx.fillStyle = '#2a2830';
+        ctx.font = `700 ${Math.round(S * 0.038)}px 'Azeret Mono', monospace`;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.letterSpacing = '0.12em';
+        ctx.fillText('ENTER', cx, cy);
+        ctx.letterSpacing = '';
+
+        // Arcs
+        ARCS.forEach((arc, i) => {
+          ctx.save();
+          ctx.beginPath();
+          ctx.arc(cx, cy, arc.r, angles[i], angles[i] + arc.span);
+          ctx.strokeStyle = arc.color;
+          ctx.lineWidth   = 1.7;
+          ctx.lineCap     = 'round';
+          ctx.stroke();
+
+          // Dot at start of arc
+          const ax = cx + Math.cos(angles[i]) * arc.r;
+          const ay = cy + Math.sin(angles[i]) * arc.r;
+          ctx.beginPath();
+          ctx.arc(ax, ay, 3.5, 0, Math.PI * 2);
+          ctx.fillStyle = arc.color;
+          ctx.fill();
+          ctx.restore();
+        });
+
+        // Free-floating scattered dots
+        FREE_DOTS.forEach(d => {
+          ctx.beginPath();
+          ctx.arc(
+            cx + Math.cos(d.pa) * d.pr * S,
+            cy + Math.sin(d.pa) * d.pr * S,
+            d.sz, 0, Math.PI * 2
+          );
+          ctx.fillStyle = d.color;
+          ctx.fill();
+        });
+      }
+
+      // ── Animation loop ───────────────────────────────────────────
+      function tick() {
+        if (!running) return;
+        ARCS.forEach((arc, i) => { angles[i] += arc.speed; });
+        draw();
+        requestAnimationFrame(tick);
+      }
+
+      // ── Exit / enter site ────────────────────────────────────────
+      function enter() {
+        if (!running) return;
+        running = false;
+        splash.classList.add('exit');
+        document.body.style.overflow = '';
+        setTimeout(() => { splash.style.display = 'none'; }, 950);
+      }
+
+      canvas.addEventListener('click', enter);
+      document.querySelector('.sph-skip').addEventListener('click', enter);
+
+      tick();
+    })();
 
     /* ── Nav active state on scroll ── */
     const sections = document.querySelectorAll('[id]');
