@@ -207,7 +207,7 @@
       line-height: .88; letter-spacing: -.05em;
       color: var(--text);
       margin-bottom: 40px;
-      display: flex; flex-wrap: wrap;
+      display: flex; flex-wrap: nowrap;
     }
     .c {
       display: inline-block;
@@ -440,9 +440,39 @@
     .focus-block {
       padding: 44px 32px; border: 1px solid var(--border);
       position: relative; overflow: hidden;
-      transition: border-color .3s, background .3s;
+      transition: border-color .4s, background .4s, box-shadow .4s;
     }
-    .focus-block:hover { background: var(--surface); border-color: var(--cyan); }
+    /* per-block glow colors */
+    .focus-block[data-n="01"]:hover {
+      background: var(--surface);
+      border-color: var(--cyan);
+      box-shadow: 0 0 48px 6px rgba(0,229,255,0.13), inset 0 0 40px 0px rgba(0,229,255,0.05);
+    }
+    .focus-block[data-n="02"]:hover {
+      background: var(--surface);
+      border-color: var(--yellow);
+      box-shadow: 0 0 48px 6px rgba(255,230,0,0.12), inset 0 0 40px 0px rgba(255,230,0,0.04);
+    }
+    .focus-block[data-n="03"]:hover {
+      background: var(--surface);
+      border-color: var(--green);
+      box-shadow: 0 0 48px 6px rgba(0,245,160,0.12), inset 0 0 40px 0px rgba(0,245,160,0.04);
+    }
+    /* animated glow halo behind card */
+    .focus-block::before {
+      content: '';
+      position: absolute; inset: -2px;
+      border-radius: 2px;
+      opacity: 0;
+      transition: opacity .4s ease;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .focus-block[data-n="01"]::before { background: radial-gradient(ellipse 80% 60% at 50% 110%, rgba(0,229,255,0.18), transparent 70%); }
+    .focus-block[data-n="02"]::before { background: radial-gradient(ellipse 80% 60% at 50% 110%, rgba(255,230,0,0.15), transparent 70%); }
+    .focus-block[data-n="03"]::before { background: radial-gradient(ellipse 80% 60% at 50% 110%, rgba(0,245,160,0.15), transparent 70%); }
+    .focus-block:hover::before { opacity: 1; }
+    /* ghost number sits above ::before */
     .focus-block::after {
       content: attr(data-n);
       position: absolute; bottom: -10px; right: -4px;
@@ -450,13 +480,20 @@
       font-size: 90px; line-height: 1; letter-spacing: -.06em;
       color: var(--border); pointer-events: none;
       transition: color .3s;
+      z-index: 1;
     }
     .focus-block:hover::after { color: var(--border2); }
+    /* keep inner content above pseudo-elements */
+    .focus-block > * { position: relative; z-index: 2; }
     .fi { font-size: 28px; margin-bottom: 22px; display: block; }
     .ft {
       font-family: 'Syne', sans-serif; font-weight: 700;
       font-size: 17px; letter-spacing: -.01em; margin-bottom: 10px;
+      transition: color .3s;
     }
+    .focus-block[data-n="01"]:hover .ft { color: var(--cyan); }
+    .focus-block[data-n="02"]:hover .ft { color: var(--yellow); }
+    .focus-block[data-n="03"]:hover .ft { color: var(--green); }
     .fd { font-size: 12px; line-height: 1.75; color: var(--muted); margin-bottom: 16px; }
     .f-tags { display: flex; flex-wrap: wrap; gap: 5px; }
     .f-tag {
@@ -587,15 +624,15 @@
     <div class="hero-year">2024 — 至今</div>
 
     <div class="hero-content">
-      <div class="hero-eyebrow">AI 研究者 · 工具构建者</div>
+      <div class="hero-eyebrow">结构工程师 · 逻辑架构 · 降维打击</div>
       <h1 class="hero-name">
         <span class="c c0">W</span><span class="c c1">A</span><span class="c c2">S</span><span class="c c3 c-cyan">J</span><span class="c c4">E</span><span class="c c5">R</span>
       </h1>
       <div class="hero-row">
         <p class="hero-desc">
-          专注于 <strong>AI 智能体系统</strong> 与大模型工程。<br>
-          研究让 AI 拥有持久记忆、自主推理和行动能力——<br><br>
-          把前沿学术成果，变成<strong>真正能用的工具</strong>。
+          <strong>把非标系统标准化。</strong><br>
+          用逻辑结构拆解复杂问题，在 AI 智能体领域做<strong>降维打击</strong>——<br><br>
+          让前沿研究落地成真正能用的东西。
         </p>
         <div class="hero-actions">
           <a href="#projects" class="btn btn-solid">
@@ -648,23 +685,18 @@
 
       <div>
         <h2 class="about-hl rv">
-          构建<br>
-          会<span class="acc">思考</span><span class="acc2">的</span><br>
-          系统。
+          结构<br>
+          <span class="acc">工程</span><span class="acc2">师</span><br>
+          思维。
         </h2>
         <p class="about-p rv d1">
-          专注于 <strong>AI 智能体（Agent）</strong> 领域的研究与工程实践。
-          核心方向是：让大语言模型拥有<strong>记忆、推理与主动行动</strong>的能力——
-          而不只是被动地回答问题。
+          我是一个<strong>结构工程师</strong>——擅长逻辑拆解与降维打击，
+          专门把混乱的非标系统梳理成清晰可执行的标准化结构。
         </p>
         <p class="about-p rv d2">
-          当前重点研究 <strong>AI 长期记忆机制</strong>——
-          如何让智能体像人一样积累经验、记住重要信息、持续自我改进。
-          同时在推动斯坦福前沿研究成果向中文生态落地。
-        </p>
-        <p class="about-p rv d3">
-          相信好工具能改变工作方式。<strong>所有成果优先开源</strong>，
-          让更多人站在巨人的肩膀上走得更快。
+          当前专注于 <strong>AI 智能体（Agent）</strong> 领域：
+          研究如何让大语言模型拥有<strong>持久记忆与自主推理</strong>的能力，
+          同时推动斯坦福前沿研究成果向中文生态落地。
         </p>
       </div>
 
