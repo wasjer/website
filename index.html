@@ -128,13 +128,13 @@
     .nav-links { display: flex; gap: 32px; list-style: none; }
     .nav-links a {
       color: var(--muted); text-decoration: none;
-      font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+      font-size: 14px; letter-spacing: .06em;
       transition: color .2s;
     }
     .nav-links a:hover { color: var(--text); }
     .nav-badge {
       display: flex; align-items: center; gap: 7px;
-      font-size: 10.5px; color: var(--muted); letter-spacing: .06em;
+      font-size: 13px; color: var(--muted); letter-spacing: .04em;
     }
     .badge-dot {
       width: 7px; height: 7px; border-radius: 50%;
@@ -194,7 +194,7 @@
 
     .hero-eyebrow {
       display: inline-flex; align-items: center; gap: 10px;
-      font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+      font-size: 14px; letter-spacing: .08em;
       color: var(--cyan);
       margin-bottom: 28px;
       opacity: 0; animation: slideUp .5s ease forwards; animation-delay: .2s;
@@ -297,7 +297,7 @@
     .ticker-track:hover { animation-play-state: paused; }
     .ti {
       display: flex; align-items: center; gap: 22px;
-      font-size: 10.5px; letter-spacing: .13em; text-transform: uppercase;
+      font-size: 13px; letter-spacing: .08em;
       color: var(--dim); padding: 0 28px; flex-shrink: 0;
     }
     .ti em { color: var(--cyan); font-style: normal; }
@@ -308,7 +308,7 @@
     .section { padding: 110px 52px; max-width: 1440px; margin: 0 auto; }
     .sec-label {
       display: flex; align-items: center; gap: 10px;
-      font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase;
+      font-size: 14px; letter-spacing: .06em;
       color: var(--muted); margin-bottom: 60px;
     }
     .sec-label::before { content:''; width:14px; height:1px; background: var(--muted); }
@@ -357,7 +357,7 @@
       margin-bottom: 8px;
     }
     .stat-n sup { font-size: .45em; color: var(--cyan); vertical-align: super; }
-    .stat-l { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+    .stat-l { font-size: 13px; letter-spacing: .05em; color: var(--muted); }
 
     /* ─── PROJECTS ───────────────────────────────────────────────────────── */
     .proj-header {
@@ -380,7 +380,7 @@
     .all-link:hover { gap: 16px; }
 
     .proj-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
+      display: grid; grid-template-columns: repeat(2, 1fr);
       gap: 3px;
     }
     .proj-card {
@@ -410,7 +410,7 @@
     }
     .proj-card:hover::after { opacity: 1; }
 
-    .pn { font-size: 10.5px; color: var(--dim); letter-spacing: .1em; margin-bottom: 22px; }
+    .pn { font-size: 13px; color: var(--dim); letter-spacing: .05em; margin-bottom: 22px; }
     .pt {
       font-family: 'Syne', sans-serif; font-weight: 700;
       font-size: 21px; letter-spacing: -.02em;
@@ -420,8 +420,8 @@
     .pd { font-size: 12.5px; line-height: 1.75; color: var(--muted); margin-bottom: 30px; }
     .pf { display: flex; align-items: center; justify-content: space-between; }
     .p-tag {
-      font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase;
-      padding: 4px 10px; border: 1px solid var(--border2); color: var(--dim);
+      font-size: 12px; letter-spacing: .04em;
+      padding: 5px 12px; border: 1px solid var(--border2); color: var(--dim);
     }
     .p-arr {
       width: 34px; height: 34px;
@@ -434,7 +434,7 @@
 
     /* ─── FOCUS / SKILLS ─────────────────────────────────────────────────── */
     .focus-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr);
+      display: grid; grid-template-columns: repeat(3, 1fr);
       gap: 3px;
     }
     .focus-block {
@@ -460,9 +460,9 @@
     .fd { font-size: 12px; line-height: 1.75; color: var(--muted); margin-bottom: 16px; }
     .f-tags { display: flex; flex-wrap: wrap; gap: 5px; }
     .f-tag {
-      font-size: 9.5px; padding: 3px 8px;
+      font-size: 12px; padding: 4px 10px;
       background: var(--bg); border: 1px solid var(--border);
-      color: var(--dim); letter-spacing: .06em;
+      color: var(--dim); letter-spacing: .03em;
     }
 
     /* ─── CONTACT ────────────────────────────────────────────────────────── */
@@ -477,7 +477,7 @@
       background: radial-gradient(ellipse 70% 60% at 50% 50%, var(--cyan-glow), transparent 70%);
     }
     .contact-label {
-      font-size: 11px; letter-spacing: .15em; text-transform: uppercase;
+      font-size: 15px; letter-spacing: .06em;
       color: var(--muted); margin-bottom: 28px;
     }
     .contact-hl {
@@ -515,7 +515,7 @@
       padding: 22px 52px;
       display: flex; align-items: center; justify-content: space-between;
     }
-    .fc { font-size: 10.5px; color: var(--muted); letter-spacing: .04em; }
+    .fc { font-size: 13px; color: var(--muted); letter-spacing: .02em; }
     .fc em { color: var(--cyan); font-style: normal; }
 
     /* ─── SCROLL REVEAL ──────────────────────────────────────────────────── */
@@ -539,7 +539,7 @@
       .section { padding: 72px 24px; }
       .about-grid { grid-template-columns: 1fr; gap: 52px; }
       .proj-grid { grid-template-columns: 1fr; }
-      .focus-grid { grid-template-columns: 1fr 1fr; }
+      .focus-grid { grid-template-columns: 1fr; }
       .contact { padding: 72px 24px 60px; }
       footer { padding: 18px 24px; flex-direction: column; gap: 6px; text-align: center; }
     }
@@ -567,14 +567,14 @@
   <nav>
     <a href="#" class="nav-logo">WAS<em>.</em></a>
     <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#focus">Focus</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#about">关于</a></li>
+      <li><a href="#projects">项目</a></li>
+      <li><a href="#focus">方向</a></li>
+      <li><a href="#contact">联系</a></li>
     </ul>
     <div class="nav-badge">
       <div class="badge-dot"></div>
-      Building
+      持续构建中
     </div>
   </nav>
 
@@ -584,25 +584,25 @@
     <div class="blob b1"></div>
     <div class="blob b2"></div>
     <div class="blob b3"></div>
-    <div class="hero-year">2024 — PRESENT</div>
+    <div class="hero-year">2024 — 至今</div>
 
     <div class="hero-content">
-      <div class="hero-eyebrow">Developer &amp; Builder</div>
+      <div class="hero-eyebrow">AI 研究者 · 工具构建者</div>
       <h1 class="hero-name">
         <span class="c c0">W</span><span class="c c1">A</span><span class="c c2">S</span><span class="c c3 c-cyan">J</span><span class="c c4">E</span><span class="c c5">R</span>
       </h1>
       <div class="hero-row">
         <p class="hero-desc">
-          <strong>AI agent architect.</strong> Quant developer for Chinese equities.
-          Bot builder and automation addict.<br><br>
-          I make software that <strong>thinks, trades, and talks</strong> — so you don't have to do it manually.
+          专注于 <strong>AI 智能体系统</strong> 与大模型工程。<br>
+          研究让 AI 拥有持久记忆、自主推理和行动能力——<br><br>
+          把前沿学术成果，变成<strong>真正能用的工具</strong>。
         </p>
         <div class="hero-actions">
           <a href="#projects" class="btn btn-solid">
-            <span>See Projects <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            <span>查看项目 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
           </a>
-          <a href="https://github.com/wasjer" target="_blank" rel="noopener" class="btn btn-ghost">
-            GitHub <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          <a href="https://t.me/+819056084740" target="_blank" rel="noopener" class="btn btn-ghost">
+            Telegram 联系我
           </a>
         </div>
       </div>
@@ -610,80 +610,80 @@
 
     <div class="hero-scroll">
       <div class="scroll-bar"></div>
-      Scroll
+      向下滚动
     </div>
   </section>
 
   <!-- ─── TICKER ────────────────────────────────────────────────────────── -->
   <div class="ticker">
     <div class="ticker-track" aria-hidden="true">
-      <div class="ti"><em>AI</em> Agents <div class="td"></div></div>
-      <div class="ti"><em>LLM</em> Memory <div class="td"></div></div>
-      <div class="ti"><em>Quant</em> Trading <div class="td"></div></div>
+      <div class="ti"><em>AI</em> 智能体 <div class="td"></div></div>
+      <div class="ti"><em>LLM</em> 记忆系统 <div class="td"></div></div>
+      <div class="ti"><em>Prompt</em> 工程 <div class="td"></div></div>
       <div class="ti"><em>Python</em> <div class="td"></div></div>
-      <div class="ti"><em>WeChat</em> Automation <div class="td"></div></div>
-      <div class="ti"><em>Prompt</em> Engineering <div class="td"></div></div>
-      <div class="ti"><em>iOS</em> Apps <div class="td"></div></div>
       <div class="ti"><em>TypeScript</em> <div class="td"></div></div>
-      <div class="ti"><em>Generative</em> Agents <div class="td"></div></div>
-      <div class="ti"><em>Open</em> Source <div class="td"></div></div>
+      <div class="ti"><em>Generative Agents</em> 虚拟小镇 <div class="td"></div></div>
+      <div class="ti"><em>大模型</em> 应用 <div class="td"></div></div>
+      <div class="ti"><em>开源</em> 研究 <div class="td"></div></div>
+      <div class="ti"><em>自动化</em> 工具 <div class="td"></div></div>
+      <div class="ti"><em>Agent</em> 框架 <div class="td"></div></div>
       <!-- duplicate for seamless loop -->
-      <div class="ti"><em>AI</em> Agents <div class="td"></div></div>
-      <div class="ti"><em>LLM</em> Memory <div class="td"></div></div>
-      <div class="ti"><em>Quant</em> Trading <div class="td"></div></div>
+      <div class="ti"><em>AI</em> 智能体 <div class="td"></div></div>
+      <div class="ti"><em>LLM</em> 记忆系统 <div class="td"></div></div>
+      <div class="ti"><em>Prompt</em> 工程 <div class="td"></div></div>
       <div class="ti"><em>Python</em> <div class="td"></div></div>
-      <div class="ti"><em>WeChat</em> Automation <div class="td"></div></div>
-      <div class="ti"><em>Prompt</em> Engineering <div class="td"></div></div>
-      <div class="ti"><em>iOS</em> Apps <div class="td"></div></div>
       <div class="ti"><em>TypeScript</em> <div class="td"></div></div>
-      <div class="ti"><em>Generative</em> Agents <div class="td"></div></div>
-      <div class="ti"><em>Open</em> Source <div class="td"></div></div>
+      <div class="ti"><em>Generative Agents</em> 虚拟小镇 <div class="td"></div></div>
+      <div class="ti"><em>大模型</em> 应用 <div class="td"></div></div>
+      <div class="ti"><em>开源</em> 研究 <div class="td"></div></div>
+      <div class="ti"><em>自动化</em> 工具 <div class="td"></div></div>
+      <div class="ti"><em>Agent</em> 框架 <div class="td"></div></div>
     </div>
   </div>
 
   <!-- ─── ABOUT ─────────────────────────────────────────────────────────── -->
   <section class="section" id="about">
-    <div class="sec-label"><span class="sec-num">02</span>About Me</div>
+    <div class="sec-label"><span class="sec-num">02</span>关于我</div>
     <div class="about-grid">
 
       <div>
         <h2 class="about-hl rv">
-          I build<br>
-          tools<br>
-          that <span class="acc">think</span><span class="acc2">.</span>
+          构建<br>
+          会<span class="acc">思考</span><span class="acc2">的</span><br>
+          系统。
         </h2>
         <p class="about-p rv d1">
-          Developer active on GitHub since 2024. My work lives at the intersection of
-          <strong>large language models</strong>, agent memory architectures, and
-          financial systems — building things that didn't exist yesterday.
+          专注于 <strong>AI 智能体（Agent）</strong> 领域的研究与工程实践。
+          核心方向是：让大语言模型拥有<strong>记忆、推理与主动行动</strong>的能力——
+          而不只是被动地回答问题。
         </p>
         <p class="about-p rv d2">
-          I'm drawn to <strong>autonomous systems</strong>: AI that can remember, reason,
-          and act. I'm also hands-on with <strong>quantitative trading</strong> for
-          Chinese A-share markets and messaging automation tools.
+          当前重点研究 <strong>AI 长期记忆机制</strong>——
+          如何让智能体像人一样积累经验、记住重要信息、持续自我改进。
+          同时在推动斯坦福前沿研究成果向中文生态落地。
         </p>
         <p class="about-p rv d3">
-          I believe in shipping fast, open-sourcing freely, and building with
-          <strong>ruthless clarity of purpose</strong>.
+          相信好工具能改变工作方式。<strong>所有成果优先开源</strong>，
+          让更多人站在巨人的肩膀上走得更快。
         </p>
       </div>
 
       <div class="stats-grid rv d1">
         <div class="stat">
           <div class="stat-n">13<sup>+</sup></div>
-          <div class="stat-l">Public Repos</div>
+          <div class="stat-l">开源项目</div>
         </div>
         <div class="stat">
-          <div class="stat-n">4<sup>+</sup></div>
-          <div class="stat-l">Languages</div>
+          <div class="stat-n">2024</div>
+          <div class="stat-l">入局 AI</div>
         </div>
         <div class="stat">
           <div class="stat-n" style="font-size:38px;padding-top:6px">∞</div>
-          <div class="stat-l">Ideas in queue</div>
+          <div class="stat-l">待探索方向</div>
         </div>
         <div class="stat">
           <div class="stat-n" style="font-size:36px;padding-top:4px">24/7</div>
-          <div class="stat-l">Building mode</div>
+          <div class="stat-l">在构建中</div>
         </div>
       </div>
 
@@ -692,22 +692,25 @@
 
   <!-- ─── PROJECTS ──────────────────────────────────────────────────────── -->
   <section class="section" id="projects" style="padding-top:0">
-    <div class="sec-label"><span class="sec-num">03</span>Selected Projects</div>
+    <div class="sec-label"><span class="sec-num">03</span>最近在做什么</div>
     <div class="proj-header rv">
-      <h2 class="proj-hl">What I've<br>been <span class="acc">making</span></h2>
-      <a href="https://github.com/wasjer" target="_blank" rel="noopener" class="all-link">
-        All repos <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
+      <h2 class="proj-hl">正在<br><span class="acc">构建</span>的事</h2>
     </div>
     <div class="proj-grid">
 
       <div class="proj-card rv">
         <div class="pn">— 01</div>
-        <div class="pt">AI Influencer Map</div>
-        <div class="pd">Interactive network visualization mapping the top AI influencers on X. Explore relationships, reach, and the thought leaders shaping the AI conversation in real time.</div>
+        <div class="pt">GenerativeAgents CN</div>
+        <div class="pd">
+          <strong>虚拟小镇与 AI 记忆</strong><br><br>
+          斯坦福的 Generative Agents 研究，让 AI 角色生活在一个模拟小镇里——
+          拥有记忆、日常计划、社交关系，像真实的人一样运转。<br><br>
+          我对这个项目进行了深度重构与中文化，让国内开发者也能直接上手研究
+          AI 的记忆机制与社会行为模拟。
+        </div>
         <div class="pf">
-          <span class="p-tag">JavaScript</span>
-          <a href="https://github.com/wasjer/AI_Influencers_X" target="_blank" rel="noopener" class="p-arr">
+          <span class="p-tag">AI 记忆 · 智能体仿真</span>
+          <a href="https://github.com/wasjer/GenerativeAgentsCN" target="_blank" rel="noopener" class="p-arr">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
           </a>
         </div>
@@ -715,59 +718,17 @@
 
       <div class="proj-card rv d1">
         <div class="pn">— 02</div>
-        <div class="pt">SimpleMem</div>
-        <div class="pd">Efficient lifelong memory for LLM agents. Lets AI systems retain, retrieve, and grow from long-term context — far beyond the limits of a context window.</div>
-        <div class="pf">
-          <span class="p-tag">AI / LLM</span>
-          <a href="https://github.com/wasjer/SimpleMem" target="_blank" rel="noopener" class="p-arr">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <div class="proj-card rv d2">
-        <div class="pn">— 03</div>
-        <div class="pt">vxquant</div>
-        <div class="pd">Python quantitative trading framework for live Chinese A-share markets. Practical, not just theoretical — built for real deployment, real capital, real edge.</div>
-        <div class="pf">
-          <span class="p-tag">Python</span>
-          <a href="https://github.com/wasjer/vxquant" target="_blank" rel="noopener" class="p-arr">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <div class="proj-card rv d3">
-        <div class="pn">— 04</div>
         <div class="pt">Prompt Recorder</div>
-        <div class="pd">Capture every prompt you send to AI or agents. Build a searchable, structured library of your best instructions — your own second brain for AI interactions.</div>
+        <div class="pd">
+          <strong>你给 AI 发的每一条指令，都值得被记录</strong><br><br>
+          每次跟 AI 或 Agent 对话时写的提示词，往往是思维最精华的部分，
+          却散落在聊天框里再难找回。<br><br>
+          这个工具自动捕获、归档你对 AI 发出的所有 Prompt，
+          让你慢慢建立起专属的<strong>个人提示词知识库</strong>。
+        </div>
         <div class="pf">
-          <span class="p-tag">TypeScript</span>
+          <span class="p-tag">提示词工程 · 效率工具</span>
           <a href="https://github.com/wasjer/-prompt_recorder" target="_blank" rel="noopener" class="p-arr">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <div class="proj-card rv d4">
-        <div class="pn">— 05</div>
-        <div class="pt">wxauto</div>
-        <div class="pd">Windows WeChat desktop client automation — no web API required. Send, receive, script, and build bots on top of the native WeChat app using pure Python.</div>
-        <div class="pf">
-          <span class="p-tag">Python</span>
-          <a href="https://github.com/wasjer/wxauto" target="_blank" rel="noopener" class="p-arr">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <div class="proj-card rv">
-        <div class="pn">— 06</div>
-        <div class="pt">GenerativeAgents CN</div>
-        <div class="pd">Deep Chinese localization and refactor of Stanford's landmark Generative Agents implementation — making the foundational AI social simulation accessible to Chinese developers.</div>
-        <div class="pf">
-          <span class="p-tag">AI Research</span>
-          <a href="https://github.com/wasjer/GenerativeAgentsCN" target="_blank" rel="noopener" class="p-arr">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
           </a>
         </div>
@@ -778,52 +739,40 @@
 
   <!-- ─── FOCUS ─────────────────────────────────────────────────────────── -->
   <section class="section" id="focus">
-    <div class="sec-label"><span class="sec-num">04</span>Focus Areas</div>
+    <div class="sec-label"><span class="sec-num">04</span>研究方向</div>
     <div class="focus-grid">
 
       <div class="focus-block rv" data-n="01">
         <span class="fi">⚡</span>
-        <div class="ft">AI Agents</div>
-        <div class="fd">Autonomous systems with persistent memory, contextual reasoning, and real-world action. Building the next generation of AI that works for you.</div>
+        <div class="ft">AI 智能体</div>
+        <div class="fd">构建具备持久记忆与自主推理能力的 AI 系统。下一代 AI 不只会回答问题，更能主动规划、记住过去、持续进化。</div>
         <div class="f-tags">
           <span class="f-tag">LLM</span>
-          <span class="f-tag">Memory</span>
-          <span class="f-tag">Agents</span>
+          <span class="f-tag">记忆系统</span>
+          <span class="f-tag">Agent</span>
           <span class="f-tag">Letta</span>
         </div>
       </div>
 
       <div class="focus-block rv d1" data-n="02">
-        <span class="fi">📈</span>
-        <div class="ft">Quant Finance</div>
-        <div class="fd">Live trading systems for Chinese A-share markets. Real strategies, real execution, real results — not just backtests on paper.</div>
+        <span class="fi">🧠</span>
+        <div class="ft">提示词工程</div>
+        <div class="fd">提示词是与 AI 对话的语言。研究如何更精准、更高效地引导大模型，把模糊的想法变成可复现的结果。</div>
         <div class="f-tags">
-          <span class="f-tag">Python</span>
-          <span class="f-tag">A-Shares</span>
-          <span class="f-tag">Algo</span>
+          <span class="f-tag">Prompt</span>
+          <span class="f-tag">大模型</span>
+          <span class="f-tag">工程化</span>
         </div>
       </div>
 
       <div class="focus-block rv d2" data-n="03">
-        <span class="fi">🤖</span>
-        <div class="ft">Automation</div>
-        <div class="fd">If a human does it repeatedly, it should be automated. From WeChat message bots to multi-platform AI prompt capture systems.</div>
-        <div class="f-tags">
-          <span class="f-tag">WeChat</span>
-          <span class="f-tag">Bots</span>
-          <span class="f-tag">Scripting</span>
-        </div>
-      </div>
-
-      <div class="focus-block rv d3" data-n="04">
         <span class="fi">🛠️</span>
-        <div class="ft">Dev Tools</div>
-        <div class="fd">Building utility software that makes working with AI faster, more intentional, and more reproducible. TypeScript, JavaScript, Python.</div>
+        <div class="ft">开源工具</div>
+        <div class="fd">把研究成果变成可以直接用的工具，优先开源。好工具能让更多人站在巨人肩膀上，少走弯路。</div>
         <div class="f-tags">
           <span class="f-tag">TypeScript</span>
-          <span class="f-tag">JS</span>
           <span class="f-tag">Python</span>
-          <span class="f-tag">iOS</span>
+          <span class="f-tag">开源</span>
         </div>
       </div>
 
@@ -833,20 +782,20 @@
   <!-- ─── CONTACT ───────────────────────────────────────────────────────── -->
   <div class="contact" id="contact">
     <div class="contact-bg"></div>
-    <div class="contact-label">// What's next?</div>
-    <h2 class="contact-hl"><span class="g">SAY HI.</span></h2>
+    <div class="contact-label">// 有想法？来找我聊聊</div>
+    <h2 class="contact-hl"><span class="g">聊一聊<span style="color:var(--pink)">.</span></span></h2>
     <div class="contact-links">
-      <a href="https://github.com/wasjer" target="_blank" rel="noopener" class="c-link">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-        GitHub / wasjer
+      <a href="https://t.me/+819056084740" target="_blank" rel="noopener" class="c-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+        Telegram &nbsp;+819056084740
       </a>
     </div>
   </div>
 
   <!-- ─── FOOTER ────────────────────────────────────────────────────────── -->
   <footer>
-    <div class="fc">© 2024 — <em>wasjer</em>. Built with intent.</div>
-    <div class="fc">github.com/<em>wasjer</em></div>
+    <div class="fc">© 2025 — <em>WASJER</em>. 构建中.</div>
+    <div class="fc">Telegram: <em>+819056084740</em></div>
   </footer>
 
   <!-- ─── SCRIPTS ───────────────────────────────────────────────────────── -->
