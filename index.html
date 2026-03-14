@@ -58,8 +58,8 @@
       --border:   #1c1c2a;
       --border2:  #252535;
       --text:     #ededeb;
-      --muted:    #5c5c72;
-      --dim:      #3a3a50;
+      --muted:    #9090ac;
+      --dim:      #78788c;
       --cyan:     #00e5ff;
       --pink:     #ff2d6b;
       --yellow:   #ffe600;
@@ -424,10 +424,14 @@
     .pt {
       font-family: 'Syne', sans-serif; font-weight: 700;
       font-size: 21px; letter-spacing: -.02em;
-      margin-bottom: 13px; color: var(--text);
+      margin-bottom: 6px; color: var(--text);
       line-height: 1.2;
     }
-    .pd { font-size: 12.5px; line-height: 1.75; color: var(--muted); margin-bottom: 30px; }
+    .pt-sub {
+      font-size: 13px; color: var(--cyan); letter-spacing: .02em;
+      margin-bottom: 16px; opacity: .8;
+    }
+    .pd { font-size: 13px; line-height: 1.8; color: var(--muted); margin-bottom: 30px; }
     .pf { display: flex; align-items: center; justify-content: space-between; }
     .p-tag {
       font-size: 12px; letter-spacing: .04em;
@@ -760,6 +764,7 @@
         </svg>
         <div class="pn">— 01</div>
         <div class="pt">GenerativeAgents CN</div>
+        <div class="pt-sub">AI 智能体社会模拟 · 记忆系统中文版</div>
         <div class="pd">
           <strong>虚拟小镇与 AI 记忆</strong><br><br>
           斯坦福的 Generative Agents 研究，让 AI 角色生活在一个模拟小镇里——
@@ -788,6 +793,7 @@
         </svg>
         <div class="pn">— 02</div>
         <div class="pt">Prompt Recorder</div>
+        <div class="pt-sub">个人 AI 对话记录 · 提示词知识库工具</div>
         <div class="pd">
           <strong>你给 AI 发的每一条指令，都值得被记录</strong><br><br>
           每次跟 AI 或 Agent 对话时写的提示词，往往是思维最精华的部分，
@@ -819,6 +825,7 @@
         </svg>
         <div class="pn">— 03 &nbsp;·&nbsp; 研究中</div>
         <div class="pt">JEPA × AI 辅助定线</div>
+        <div class="pt-sub">世界模型 × 攀岩路线智能辅助设计</div>
         <div class="pd">
           <strong>用世界模型理解空间结构，让 AI 学会"看懂"一条路线</strong><br><br>
           JEPA（Joint Embedding Predictive Architecture）是 Meta 提出的世界模型架构——
