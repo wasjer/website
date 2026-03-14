@@ -203,7 +203,7 @@
 
     .hero-name {
       font-family: 'Syne', sans-serif; font-weight: 800;
-      font-size: clamp(88px, 16vw, 200px);
+      font-size: clamp(10px, 14vw, 200px);
       line-height: .88; letter-spacing: -.05em;
       color: var(--text);
       margin-bottom: 40px;
@@ -584,6 +584,8 @@
       .focus-grid { grid-template-columns: 1fr; }
       .stats-grid { grid-template-columns: 1fr 1fr; }
       .proj-grid { grid-template-columns: 1fr; }
+      .stat-n { font-size: 36px !important; }
+      .stat { padding: 22px 16px; }
     }
   </style>
 </head>
@@ -763,6 +765,25 @@
           <a href="https://github.com/wasjer/-prompt_recorder" target="_blank" rel="noopener" class="p-arr">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
           </a>
+        </div>
+      </div>
+
+      <div class="proj-card rv d2" style="grid-column: 1 / -1;">
+        <div class="pn">— 03 &nbsp;·&nbsp; 研究中</div>
+        <div class="pt">JEPA × AI 辅助定线</div>
+        <div class="pd">
+          <strong>用世界模型理解空间结构，让 AI 学会"看懂"一条路线</strong><br><br>
+          JEPA（Joint Embedding Predictive Architecture）是 Meta 提出的世界模型架构——
+          它不预测像素，而是预测世界的<strong>结构与规律</strong>，更接近人类的感知方式。<br><br>
+          当前研究方向：将 JEPA 的空间推理能力引入攀岩定线场景，
+          探索 AI 如何理解动作序列、力学结构与路线逻辑，
+          最终辅助定线师设计出更有质量的路线。
+        </div>
+        <div class="pf">
+          <span class="p-tag">世界模型 · 空间推理 · 工具研究</span>
+          <span class="p-arr" style="opacity:.35; cursor:default;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M2 12h20"/></svg>
+          </span>
         </div>
       </div>
 
